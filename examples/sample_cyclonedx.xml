@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<bom xmlns="http://cyclonedx.org/schema/bom/1.4" version="1">
+  <metadata>
+    <timestamp>2024-05-20T12:00:00Z</timestamp>
+  </metadata>
+  <components>
+    <component type="library">
+      <name>openssl</name>
+      <version>3.0.7</version>
+      <purl>pkg:openssl/openssl@3.0.7</purl>
+      <license>
+        <name>Apache-2.0</name>
+      </license>
+    </component>
+  </components>
+</bom>

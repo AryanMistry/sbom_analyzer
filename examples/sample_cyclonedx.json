@@ -1,0 +1,18 @@
+{
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.4",
+    "metadata": {
+      "timestamp": "2024-05-20T12:00:00Z"
+    },
+    "components": [
+      {
+        "type": "library",
+        "name": "log4j-core",
+        "version": "2.14.1",
+        "purl": "pkg:log4j/log4j-core@2.14.1",
+        "license": {
+          "name": "Apache-2.0"
+        }
+      }
+    ]
+  }
