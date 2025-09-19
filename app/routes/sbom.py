@@ -6,7 +6,6 @@ from app.models.schemas import SBOMAnalysis
 
 router = APIRouter()
 
-
 @router.get("/")
 async def root():
     return {"message": "SBOM Analysis API"}
@@ -21,7 +20,6 @@ async def analyze_sbom(file: UploadFile = File(...)):
         if ext.endswith(".json") and "spdx" in ext:
             analysis = parse_spdx(content)
         elif ext.endswith(".json") or ext.endswith(".xml"):
-            # Use CycloneDX parser directly on content
             if ext.endswith(".json"):
                 analysis = _parse_cyclonedx_json(content)
             else:
@@ -33,7 +31,8 @@ async def analyze_sbom(file: UploadFile = File(...)):
         for component in analysis["components"]:
             component["vulnerabilities"] = check_vulnerabilities(
                 component["name"],
-                component["version"]
+                component["version"],
+                purl=component.get("purl")
             )
 
         return analysis

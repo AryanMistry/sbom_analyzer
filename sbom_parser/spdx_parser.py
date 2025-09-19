@@ -9,7 +9,7 @@ def parse_spdx(content: bytes) -> dict:
             "name": package.get("name"),
             "version": package.get("versionInfo", "unknown"),
             "license": package.get("licenseConcluded"),
-            "purl": None  # SPDX doesn't use PURLs
+            "purl": None
         })
     return {
         "format": "SPDX",

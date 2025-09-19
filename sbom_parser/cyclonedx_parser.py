@@ -1,6 +1,7 @@
 import json
 import xml.etree.ElementTree as ET
 from typing import Union
+
 def _parse_cyclonedx_json(content: str) -> dict:
     """Parse CycloneDX JSON format"""
     data = json.loads(content)
@@ -33,10 +34,9 @@ def _parse_cyclonedx_xml(content: str) -> dict:
     except ET.ParseError as e:
         raise ValueError(f"Invalid XML: {str(e)}")
     
-    # Namespace handling
     ns = {"cdx": "http://cyclonedx.org/schema/bom/1.4"}
     
-    # Basic validation
+    # basic validation
     if root.tag != "{http://cyclonedx.org/schema/bom/1.4}bom":
         raise ValueError("Not a CycloneDX XML file")
     
