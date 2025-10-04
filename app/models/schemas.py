@@ -10,6 +10,9 @@ class Vulnerability(BaseModel):
     summary: Optional[str] = None
     details: Optional[str] = None
     severity: Optional[str] = None
+    cvss_score: Optional[float] = None
+    cvss_vector: Optional[str] = None
+    nvd_description: Optional[str] = None
     references: List[VulnerabilityReference] = []
 
 class Component(BaseModel):
