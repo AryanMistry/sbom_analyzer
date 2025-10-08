@@ -12,6 +12,8 @@ class Vulnerability(BaseModel):
     severity: Optional[str] = None
     cvss_score: Optional[float] = None
     cvss_vector: Optional[str] = None
+    epss_score: Optional[float] = None
+    epss_percentile: Optional[float] = None
     nvd_description: Optional[str] = None
     references: List[VulnerabilityReference] = []
 
