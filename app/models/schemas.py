@@ -1,6 +1,3 @@
-"""
-Pydantic schemas for the SBOM Security & Compliance Platform
-"""
 from pydantic import BaseModel, Field, HttpUrl, ConfigDict
 from typing import List, Optional, Dict, Any
 from datetime import datetime
@@ -23,7 +20,7 @@ class LicenseRisk(str, Enum):
     NONE = "NONE"
 
 
-# ==================== Vulnerability Models ====================
+# Vulnerability Models
 
 class VulnerabilityReference(BaseModel):
     type: Optional[str] = None
@@ -50,7 +47,7 @@ class Vulnerability(BaseModel):
     model_config = ConfigDict(extra="ignore")
 
 
-# ==================== Component Models ====================
+# Component Models
 
 class LicenseInfo(BaseModel):
     name: str
@@ -74,7 +71,7 @@ class Component(BaseModel):
     model_config = ConfigDict(extra="ignore")
 
 
-# ==================== SBOM Metadata Models ====================
+# SBOM Metadata Models
 
 class SBOMMetadata(BaseModel):
     format: str
@@ -86,7 +83,7 @@ class SBOMMetadata(BaseModel):
     document_name: Optional[str] = None
 
 
-# ==================== Risk Analysis Models ====================
+# Risk Analysis Models
 
 class RiskBreakdown(BaseModel):
     critical_count: int = 0
@@ -111,7 +108,7 @@ class LicenseConflict(BaseModel):
     description: str
 
 
-# ==================== AI Insights Models ====================
+# AI Insights Models
 
 class RemediationStep(BaseModel):
     priority: int
@@ -134,7 +131,7 @@ class AIRiskReport(BaseModel):
     generated_at: datetime = Field(default_factory=datetime.utcnow)
 
 
-# ==================== Main Analysis Models ====================
+# Main Analysis Models
 
 class SBOMAnalysis(BaseModel):
     id: Optional[str] = None
@@ -179,7 +176,7 @@ class AnalysisHistoryResponse(BaseModel):
     page_size: int
 
 
-# ==================== Authentication Models ====================
+# Authentication Models
 
 class UserCreate(BaseModel):
     email: str
@@ -220,7 +217,7 @@ class APIKeyResponse(BaseModel):
     last_used: Optional[datetime] = None
 
 
-# ==================== Dashboard Stats Models ====================
+# Dashboard Stats Models
 
 class DashboardStats(BaseModel):
     total_analyses: int
